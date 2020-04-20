@@ -6,7 +6,7 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d80245e0404cf04b")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "71f588e3ceb03fa0")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -62,6 +62,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// MainContent: Full Content Here
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		[ImplementPropertyType("mainContent")]
+		public global::System.Web.IHtmlString MainContent => global::Umbraco.Web.PublishedModels.BasicContentControl.GetMainContent(this);
+
+		///<summary>
 		/// Title: Add a title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
@@ -73,6 +80,10 @@ namespace Umbraco.Web.PublishedModels
 	/// <summary>Basic Content Control</summary>
 	public partial interface IBasicContentControl : IPublishedContent
 	{
+		/// <summary>MainContent</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		global::System.Web.IHtmlString MainContent { get; }
+
 		/// <summary>Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
 		string Title { get; }
@@ -102,6 +113,17 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// MainContent: Full Content Here
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		[ImplementPropertyType("mainContent")]
+		public global::System.Web.IHtmlString MainContent => GetMainContent(this);
+
+		/// <summary>Static getter for MainContent</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.0")]
+		public static global::System.Web.IHtmlString GetMainContent(IBasicContentControl that) => that.Value<global::System.Web.IHtmlString>("mainContent");
 
 		///<summary>
 		/// Title: Add a title
