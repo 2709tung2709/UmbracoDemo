@@ -89,4 +89,25 @@
       <file name="/umbraco/js/umbraco.preview.js" />
     </files>
   </item>
+  <item key="L2Nzcy9jbGVhbi1ibG9nLm1pbi5jc3M7" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\1_c80bd1d02ee14e68a7368801b9daceee.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/css/clean-blog.min.css" />
+    </files>
+  </item>
+  <item key="L3ZlbmRvci9ib290c3RyYXAvY3NzL2Jvb3RzdHJhcC5taW4uY3NzOy92ZW5kb3IvZm9udGF3ZXNvbWUtZnJlZS9jc3MvYWxsLm1pbi5jc3M7" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\1_542d0e9dd68443e88c1bbe368d3d9d92.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/vendor/bootstrap/css/bootstrap.min.css" />
+      <file name="/vendor/fontawesome-free/css/all.min.css" />
+    </files>
+  </item>
+  <item key="L3ZlbmRvci9qcXVlcnkvanF1ZXJ5Lm1pbi5qczs" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\1_dcb73f2995274977ba3de9d3b7ceb819.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/vendor/jquery/jquery.min.js" />
+    </files>
+  </item>
+  <item key="L2pzL2NsZWFuLWJsb2cubWluLmpzOw" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\1_d4f5a2a931b64412b11ec6e062b901d2.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/js/clean-blog.min.js" />
+    </files>
+  </item>
 </map>
