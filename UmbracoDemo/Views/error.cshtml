@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+
+<div class="container">
+    <div class="row">
+            @{
+                var media = Model.Value<IPublishedContent>("mainImage");
+                if (media != null)
+                {
+                    <img src="@media.Url" style="margin: 0 auto" alt="@media.Value("alt")" />
+                }
+            }
+
+    </div>
+</div>
+
