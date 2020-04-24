@@ -5,7 +5,7 @@
 
 
 <div id="form-outer">
-    @using (Ajax.BeginForm("SubmitForm", "ContactSurface", new AjaxOptions()
+    @using (Ajax.BeginForm("SubmitForm", "Contact", new AjaxOptions()
     {
         UpdateTargetId = "form-result",
         HttpMethod = "POST",
@@ -19,27 +19,27 @@
     <div class="control-group">
         <div class="form-group floating-label-form-group controls">
             <label>@Umbraco.GetDictionaryValue("Contact.Name")</label>
-            @Html.TextBoxFor(m => m.Name, new { @class="form-control", placeholder = Umbraco.GetDictionaryValue("Contact.Name") + "..." })
+            @Html.TextBoxFor(m => m.Name, new { @class="form-control", placeholder = "Name...." })
             @Html.ValidationMessageFor(m => m.Name)
         </div>
     </div>
     <div class="control-group">
         <div class="form-group floating-label-form-group controls">
-            <label>@Umbraco.GetDictionaryValue("Contact.Email")</label>
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Umbraco.GetDictionaryValue("Contact.Email") + "..." })
+            <label>@Umbraco.GetDictionaryValue("ContactModel.Email")</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" + "..." })
             @Html.ValidationMessageFor(m => m.Email)
         </div>
     </div>
     <div class="control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>@Umbraco.GetDictionaryValue("Contact.Message")</label>
-            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = Umbraco.GetDictionaryValue("Contact.Message") + "...", rows = "6" })
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "Message" + "...", rows = "6" })
             @Html.ValidationMessageFor(m => m.Message)
         </div>
     </div>
     <br>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary contact-submit" id="sendMessageButton">@Umbraco.GetDictionaryValue("Contact.Send")</button>
+        <button type="submit" class="btn btn-primary contact-submit" id="sendMessageButton">Send</button>
     </div>
     }
 </div>

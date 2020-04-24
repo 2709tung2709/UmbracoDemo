@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits UmbracoViewPage
 
 @{
     var title = Model.HasValue("title") ? Model.Value("title") : Model.Value("Name");
@@ -14,18 +14,21 @@
     }
 
     var authorName = Model.HasProperty("authorName") && Model.HasValue("authorName") ? Model.Value<string>("authorName") : "";
-    DateTime? articleDate = Model.HasProperty("articleDate") && Model.HasValue("articleDatee") ? Model.Value<DateTime?>("articleDate") : DateTime.MinValue;
+    DateTime articleDate = Model.HasProperty("articleDate") && Model.HasValue("articleDatee") ? Model.Value<DateTime>("articleDate") : DateTime.MinValue;
 
-    bool hasAuthorDetails = false;
-    if(!string.IsNullOrWhiteSpace(authorName) && articleDate!= DateTime.MinValue)
+    int hasAuthorDetails = 0;
+    if (!string.IsNullOrWhiteSpace(authorName))
     {
-        hasAuthorDetails = true;
+        hasAuthorDetails++;
+        if (articleDate != DateTime.MinValue)
+        {
+            hasAuthorDetails++;
+        }
     }
-    //bool hasAuthorDetails = !string.IsNullOrWhiteSpace(authorName) && articleDate != DateTime.MinValue;
 }
 
 <!-- Page Header -->
-<header class="masthead lazyload"  style="@(!string.IsNullOrWhiteSpace(image.Url) ? "background-image: url('" + image.Url +"')" : null)">
+<header class="masthead "  style="@(!string.IsNullOrWhiteSpace(image.Url) ? "background-image: url('" + image.Url +"')" : null)">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -35,7 +38,7 @@
                     <h2>@Model.Value("authorName")</h2>
                     @if (!string.IsNullOrWhiteSpace(subtitle))
                     {
-                        if (hasAuthorDetails)
+                        if (hasAuthorDetails==2)
                         {
                             <h2 class="subheading">@subtitle</h2>
                         }
@@ -45,7 +48,7 @@
                         }
                     }
 
-                    @if (hasAuthorDetails)
+                    @if (hasAuthorDetails==2)
                     {
                         <span class="meta">
                             Posted
@@ -53,7 +56,7 @@
                             {
                                 @Html.Raw("by ") @authorName
                             }
-                            on @articleDate.Value.ToString("MMMM dd, yyyy")
+                            on @articleDate.ToString("MMMM dd, yyyy")
                         </span>
                     }
                 </div>

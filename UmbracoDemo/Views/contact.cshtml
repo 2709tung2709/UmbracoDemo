@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits UmbracoViewPage
 
 @using ClientDependency.Core.Mvc
 
@@ -14,14 +14,27 @@
     Html.RequiresJs("/scripts/jquery.validate.unobtrusive.min.js");
     Html.RequiresJs("/scripts/jquery.unobtrusive-ajax.min.js");
     Html.RequiresJs("/scripts/contactForm.js");
+
 }
 
-@Html.Partial("~/Views/Partials/pageHeader.cshtml")
-
+@*@Html.Partial("~/Views/Partials/pageHeader.cshtml");*@
+<!-- Page Header -->
+<header class="masthead " style="">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            @{ Html.RenderAction("RenderForm", "Contact"); }
+            @{ Html.RenderAction("RenderForm", "ContactSurface"); }
         </div>
     </div>
 </div>
