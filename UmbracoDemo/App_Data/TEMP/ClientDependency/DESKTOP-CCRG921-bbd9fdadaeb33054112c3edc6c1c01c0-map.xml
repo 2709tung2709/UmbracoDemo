@@ -83,4 +83,13 @@
       <file name="/umbraco/js/init.js" />
     </files>
   </item>
+  <item key="L3NjcmlwdHMvanF1ZXJ5LnZhbGlkYXRlLm1pbi5qczsvc2NyaXB0cy9qcXVlcnkudmFsaWRhdGUudW5vYnRydXNpdmUubWluLmpzOy9zY3JpcHRzL2pxdWVyeS51bm9idHJ1c2l2ZS1hamF4Lm1pbi5qczsvc2NyaXB0cy9jb250YWN0Rm9ybS5qczsvdmVuZG9yL2pxdWVyeS9qcXVlcnkubWluLmpzOw" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\593840956_8e02a113e85f43ad8e36ea485d8617c3.cdJ" compression="gzip" version="593840956">
+    <files>
+      <file name="/scripts/jquery.validate.min.js" />
+      <file name="/scripts/jquery.validate.unobtrusive.min.js" />
+      <file name="/scripts/jquery.unobtrusive-ajax.min.js" />
+      <file name="/scripts/contactForm.js" />
+      <file name="/vendor/jquery/jquery.min.js" />
+    </files>
+  </item>
 </map>
