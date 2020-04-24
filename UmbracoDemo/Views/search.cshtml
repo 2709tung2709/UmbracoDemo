@@ -3,10 +3,26 @@
 @{
     Layout = "master.cshtml";
     var searchQuery = Request.QueryString["q"];
+
+    var image = Model.Value<IPublishedContent>("mainImage");
+
 }
 
 <!-- Page Header -->
-@Html.Partial("/Views/Partials/pageHeader.cshtml")
+@*@Html.Partial("/Views/Partials/pageHeader.cshtml")*@
+<!-- Page Header -->
+<header class="masthead " style="@(!string.IsNullOrWhiteSpace(image.Url) ? "background-image: url('" + image.Url +"')" : null)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class="container">
     <form action="@Model.Url" method="GET" id="search">
@@ -26,7 +42,7 @@
                 {
                     var results = Umbraco.ContentQuery.Search(searchQuery, string.Empty);
                     long resultCount = results != null && results.Any() ? results.Count() : 0;
-                <p>@Html.Raw(string.Format(Umbraco.GetDictionaryValue("Search.ResultsText"), searchQuery, resultCount, resultCount == 1 ? null : "s"))</p>
+                    <p>@Html.Raw(string.Format(Umbraco.GetDictionaryValue("Search.ResultsText"), searchQuery, resultCount, resultCount == 1 ? null : "s"))</p>
 
                     if (resultCount > 0)
                     {
@@ -37,23 +53,23 @@
                             var authorName = result.Content.Value<string>("authorName");
                             var articleDate = result.Content.Value<DateTime>("articleDate");
 
-                <div class="post-preview">
-                    <a href="@result.Content.Url">
-                        <h2 class="post-title">
-                            @(!string.IsNullOrWhiteSpace(title) ? title : result.Content.Name)
-                        </h2>
-                        @if (!string.IsNullOrWhiteSpace(subtitle))
+                            <div class="post-preview">
+                                <a href="@result.Content.Url">
+                                    <h2 class="post-title">
+                                        @(!string.IsNullOrWhiteSpace(title) ? title : result.Content.Name)
+                                    </h2>
+                                    @if (!string.IsNullOrWhiteSpace(subtitle))
                                     {
-                        <h3 class="post-subtitle">@subtitle</h3>
+                                        <h3 class="post-subtitle">@subtitle</h3>
                                     }
-                    </a>
-                    @if (!string.IsNullOrWhiteSpace(authorName) && articleDate != DateTime.MinValue)
+                                </a>
+                                @if (!string.IsNullOrWhiteSpace(authorName) && articleDate != DateTime.MinValue)
                                 {
-                    <p class="post-meta">
-                        Posted by @authorName on @articleDate.ToString("MMMM dd, yyyy")
-                    </p>
+                                    <p class="post-meta">
+                                        Posted by @authorName on @articleDate.ToString("MMMM dd, yyyy")
+                                    </p>
                                 }
-                </div>
+                            </div>
                         }
 
                     }

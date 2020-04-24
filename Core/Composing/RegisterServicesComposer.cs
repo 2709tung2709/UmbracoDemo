@@ -6,19 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Core.Composing;
+using Umbraco.Core;
 
 namespace Core.Composing
 {
     public class RegisterServicesComposer : IUserComposer
     {
-        //private ILifetime _lifetime;
-        //public RegisterServicesComposer()
-        //{
-        //    _lifetime = new 
-        //}
         public void Compose(Composition composition)
         {
-            composition.Register(typeof(ISmtpService), typeof(SmtpService), Lifetime.Request);
+            //composition.Register(typeof(ISmtpService), typeof(SmtpService), Lifetime.Request);
+            composition.Register<ISmtpService, SmtpService>(Lifetime.Request);
             //var serviceContainer = composition.Concrete as LightInject.ServiceContainer;
             //serviceContainer.Register<ISmtpService,SmtpService>();
         }
