@@ -15,9 +15,11 @@ namespace Core.Composing
         public void Compose(Composition composition)
         {
             //composition.Register(typeof(ISmtpService), typeof(SmtpService), Lifetime.Request);
-            composition.Register<ISmtpService, SmtpService>(Lifetime.Request);
+            composition.Register<ISmtpService, SmtpService>(Lifetime.Singleton);
             //var serviceContainer = composition.Concrete as LightInject.ServiceContainer;
             //serviceContainer.Register<ISmtpService,SmtpService>();
+
+            composition.Register<IArticleService, ArticleService>(Lifetime.Singleton);
         }
     }
 }
