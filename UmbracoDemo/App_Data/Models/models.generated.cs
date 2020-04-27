@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d55bc9a9d02843e3")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "5b58acb28edbb6c")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -1112,6 +1112,121 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
 		[ImplementPropertyType("link")]
 		public global::Umbraco.Web.Models.Link Link => this.Value<global::Umbraco.Web.Models.Link>("link");
+	}
+
+	// Mixin Content Type with alias "redirectControls"
+	/// <summary>Redirect Controls</summary>
+	public partial interface IRedirectControls : IPublishedContent
+	{
+		/// <summary>Is Temporary Redirect</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		bool IsTemporaryRedirect { get; }
+
+		/// <summary>Link</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		global::Umbraco.Web.Models.Link Link { get; }
+	}
+
+	/// <summary>Redirect Controls</summary>
+	[PublishedModel("redirectControls")]
+	public partial class RedirectControls : PublishedContentModel, IRedirectControls
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public new const string ModelTypeAlias = "redirectControls";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<RedirectControls, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public RedirectControls(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Is Temporary Redirect
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("isTemporaryRedirect")]
+		public bool IsTemporaryRedirect => GetIsTemporaryRedirect(this);
+
+		/// <summary>Static getter for Is Temporary Redirect</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public static bool GetIsTemporaryRedirect(IRedirectControls that) => that.Value<bool>("isTemporaryRedirect");
+
+		///<summary>
+		/// Link: Enter the link for this redirect
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("link")]
+		public global::Umbraco.Web.Models.Link Link => GetLink(this);
+
+		/// <summary>Static getter for Link</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public static global::Umbraco.Web.Models.Link GetLink(IRedirectControls that) => that.Value<global::Umbraco.Web.Models.Link>("link");
+	}
+
+	/// <summary>Redirect</summary>
+	[PublishedModel("redirect")]
+	public partial class Redirect : PublishedContentModel, IRedirectControls, IVisibilityControls1
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public new const string ModelTypeAlias = "redirect";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Redirect, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public Redirect(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Is Temporary Redirect
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("isTemporaryRedirect")]
+		public bool IsTemporaryRedirect => global::Umbraco.Web.PublishedModels.RedirectControls.GetIsTemporaryRedirect(this);
+
+		///<summary>
+		/// Link: Enter the link for this redirect
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("link")]
+		public global::Umbraco.Web.Models.Link Link => global::Umbraco.Web.PublishedModels.RedirectControls.GetLink(this);
+
+		///<summary>
+		/// Hide from XMLSitemap: Hide this page from the XML Sitemap
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("hideFromXMLSitemap")]
+		public bool HideFromXmlsitemap => global::Umbraco.Web.PublishedModels.VisibilityControls1.GetHideFromXmlsitemap(this);
+
+		///<summary>
+		/// Umbraco Navi Hide: Hide this page from navigation and search result
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.VisibilityControls1.GetUmbracoNaviHide(this);
 	}
 
 	/// <summary>Folder</summary>
