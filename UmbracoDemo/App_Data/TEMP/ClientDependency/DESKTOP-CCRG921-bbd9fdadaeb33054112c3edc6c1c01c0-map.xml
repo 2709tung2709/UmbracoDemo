@@ -92,4 +92,27 @@
       <file name="/vendor/jquery/jquery.min.js" />
     </files>
   </item>
+  <item key="L3ZlbmRvci9qcXVlcnkvanF1ZXJ5Lm1pbi5qczsvdmVuZG9yL2Jvb3RzdHJhcC9qcy9ib290c3RyYXAuYnVuZGxlLm1pbi5qczsvanMvY2xlYW4tYmxvZy5taW4uanM7" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\593840956_b044460bab88485cadc4d9ee68a9ed1d.cdJ" compression="gzip" version="593840956">
+    <files>
+      <file name="/vendor/jquery/jquery.min.js" />
+      <file name="/vendor/bootstrap/js/bootstrap.bundle.min.js" />
+      <file name="/js/clean-blog.min.js" />
+    </files>
+  </item>
+  <item key="L3NjcmlwdHMvbGF6eXNpemVzLm1pbi5qczsvc2NyaXB0cy9scy51bnZlaWhvb2tzLm1pbi5qczs" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\593840956_5c7cf16df7484c75a71d255a964504ba.cdJ" compression="gzip" version="593840956">
+    <files>
+      <file name="/scripts/lazysizes.min.js" />
+    </files>
+  </item>
+  <item key="L3NjcmlwdHMvanF1ZXJ5LnZhbGlkYXRlLm1pbi5qczsvc2NyaXB0cy9qcXVlcnkudmFsaWRhdGUudW5vYnRydXNpdmUubWluLmpzOy9zY3JpcHRzL2pxdWVyeS51bm9idHJ1c2l2ZS1hamF4Lm1pbi5qczsvc2NyaXB0cy9jb250YWN0Rm9ybS5qczsvdmVuZG9yL2pxdWVyeS9qcXVlcnkubWluLmpzOy92ZW5kb3IvYm9vdHN0cmFwL2pzL2Jvb3RzdHJhcC5idW5kbGUubWluLmpzOy9qcy9jbGVhbi1ibG9nLm1pbi5qczs" file="C:\Users\tungnh\source\repos\UmbracoDemo\UmbracoDemo\App_Data\TEMP\ClientDependency\593840956_33990b1123ac406aba6ad53bd6c5d14d.cdJ" compression="gzip" version="593840956">
+    <files>
+      <file name="/scripts/jquery.validate.min.js" />
+      <file name="/scripts/jquery.validate.unobtrusive.min.js" />
+      <file name="/scripts/jquery.unobtrusive-ajax.min.js" />
+      <file name="/scripts/contactForm.js" />
+      <file name="/vendor/jquery/jquery.min.js" />
+      <file name="/vendor/bootstrap/js/bootstrap.bundle.min.js" />
+      <file name="/js/clean-blog.min.js" />
+    </files>
+  </item>
 </map>

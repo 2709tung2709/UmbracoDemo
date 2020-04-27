@@ -8,72 +8,72 @@
 @if (resultSet?.Results != null && resultSet.Results.Any())
 {
     var articles = resultSet.Results.Cast<Article>();
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            @foreach (var article in articles)
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                @foreach (var article in articles)
                 {
-            <div class="post-preview">
-                <a href="@article.Url">
-                    <h2 class="post-title">
-                        @(!string.IsNullOrWhiteSpace(article.Title) ? article.Title : article.Name)
-                    </h2>
-                    @if (!string.IsNullOrWhiteSpace(article.Subtitle))
+                    <div class="post-preview">
+                        <a href="@article.Url">
+                            <h2 class="post-title">
+                                @(!string.IsNullOrWhiteSpace(article.Title) ? article.Title : article.Name)
+                            </h2>
+                            @if (!string.IsNullOrWhiteSpace(article.Subtitle))
                             {
-                    <h3 class="post-subtitle">
-                        @article.Subtitle
-                    </h3>
+                                <h3 class="post-subtitle">
+                                    @article.Subtitle
+                                </h3>
                             }
-                </a>
-                <p class="post-meta">
-                    Posted
-                    @if (!string.IsNullOrWhiteSpace(article.AuthorName))
+                        </a>
+                        <p class="post-meta">
+                            Posted
+                            @if (!string.IsNullOrWhiteSpace(article.AuthorName))
                             {
-                    @Html.Raw("by ")  @article.AuthorName
+                                @Html.Raw("by ") @article.AuthorName
                             }
-                    on @article.ArticleDate.ToString("MMMM dd, yyyy")
-                </p>
-            </div>
-            <hr>
+                            on @article.ArticleDate.ToString("MMMM dd, yyyy")
+                        </p>
+                    </div>
+                    <hr>
                 }
 
-            <div id="paging" class="clearfix">
-                @if (resultSet.IsArticleListPage)
+                <div id="paging" class="clearfix">
+                    @if (resultSet.IsArticleListPage)
                     {
                         if (resultSet.PageCount > 1)
                         {
-                <div class="paging-block">
-                    @if (resultSet.PageNumber > 1)
+                            <div class="paging-block">
+                                @if (resultSet.PageNumber > 1)
                                 {
-                    <a class="btn btn-primary float-left" href="@($"{Model.Url}?page={resultSet.PageNumber - 1}&size={resultSet.PageSize}")">Prev</a>
+                                    <a class="btn btn-primary float-left" href="@($"{resultSet.Url}?page={resultSet.PageNumber - 1}&size={resultSet.PageSize}")">@Umbraco.GetDictionaryValue("Blog.Prev")</a>
                                 }
                                 else
                                 {
-                    @Html.Raw("&nbsp;")
+                                    @Html.Raw("&nbsp;")
                                 }
-                </div>
-                <div class="paging-block text-center">
-                    <span>Page @resultSet.PageNumber of @resultSet.PageCount</span>
-                </div>
-                <div class="paging-block">
-                    @if (resultSet.PageNumber < resultSet.PageCount)
+                            </div>
+                            <div class="paging-block text-center">
+                                <span>Page @resultSet.PageNumber of @resultSet.PageCount</span>
+                            </div>
+                            <div class="paging-block">
+                                @if (resultSet.PageNumber < resultSet.PageCount)
                                 {
-                    <a class="btn btn-primary float-right" href="@($"{Model.Url}?page={resultSet.PageNumber + 1}&size={resultSet.PageSize}")">Next</a>
+                                    <a class="btn btn-primary float-right" href="@($"{resultSet.Url}?page={resultSet.PageNumber + 1}&size={resultSet.PageSize}")">@Umbraco.GetDictionaryValue("Blog.Next")</a>
                                 }
                                 else
                                 {
-                    @Html.Raw("&nbsp;")
+                                    @Html.Raw("&nbsp;")
                                 }
-                </div>
+                            </div>
 
                         }
                     }
                     else
                     {
-                <a class="btn btn-primary float-right" href="@(Model.Url)">View All</a>
+                        <a class="btn btn-primary float-right" href="@(resultSet.Url)">@Umbraco.GetDictionaryValue("Blog.ViewAll")</a>
                     }
+                </div>
             </div>
         </div>
     </div>
-</div>
 }

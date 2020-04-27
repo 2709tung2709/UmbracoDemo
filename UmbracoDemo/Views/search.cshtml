@@ -9,20 +9,7 @@
 }
 
 <!-- Page Header -->
-@*@Html.Partial("/Views/Partials/pageHeader.cshtml")*@
-<!-- Page Header -->
-<header class="masthead " style="@(!string.IsNullOrWhiteSpace(image.Url) ? "background-image: url('" + image.Url +"')" : null)">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="site-heading">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+@Html.Partial("/Views/Partials/pageHeader.cshtml")
 
 <div class="container">
     <form action="@Model.Url" method="GET" id="search">

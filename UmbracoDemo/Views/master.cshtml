@@ -20,6 +20,10 @@
     <!-- Custom scripts for this template -->
     Html.RequiresJs("/js/clean-blog.min.js");
 
+    <!-- Lazy loading for images-->
+    Html.RequiresJs("/scripts/lazysizes.min.js", new { async = "async" });
+    Html.RequiresJs("/scripts/ls.unveilhooks.min.js", new { async = "async" });
+
 }
 
 <!DOCTYPE html>

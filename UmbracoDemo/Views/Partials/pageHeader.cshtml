@@ -1,9 +1,9 @@
 ﻿@inherits UmbracoViewPage
 
 @{
-    var title = Model.HasValue("title") ? Model.Value("title") : Model.Value("Name");
+    var title = Model.HasValue("title") ? Model.Value("title") : Model.Name;
     var subtitle = Model.HasValue("subtitle") ? Model.Value<string>("subtitle") : "";
-    var image = Model.Value<IPublishedContent>("mainImage");
+    var image = Model.Value<IPublishedContent>("mainImage", fallback: Fallback.ToAncestors);
 
     string smallImageUrl = "";
     string imageUrl = "";
@@ -14,31 +14,23 @@
     }
 
     var authorName = Model.HasProperty("authorName") && Model.HasValue("authorName") ? Model.Value<string>("authorName") : "";
-    DateTime articleDate = Model.HasProperty("articleDate") && Model.HasValue("articleDatee") ? Model.Value<DateTime>("articleDate") : DateTime.MinValue;
+    DateTime articleDate = Model.HasProperty("articleDate") && Model.HasValue("articleDate") ? Model.Value<DateTime>("articleDate") : DateTime.MinValue;
 
-    int hasAuthorDetails = 0;
-    if (!string.IsNullOrWhiteSpace(authorName))
-    {
-        hasAuthorDetails++;
-        if (articleDate != DateTime.MinValue)
-        {
-            hasAuthorDetails++;
-        }
-    }
+    bool hasAuthorDetails = !string.IsNullOrWhiteSpace(authorName) || articleDate != DateTime.MinValue;
 }
 
 <!-- Page Header -->
-<header class="masthead "  style="@(!string.IsNullOrWhiteSpace(image.Url) ? "background-image: url('" + image.Url +"')" : null)">
+<header class="masthead lazyload" data-bg="@(!string.IsNullOrWhiteSpace(imageUrl) ? imageUrl : null)" 
+        style="@(!string.IsNullOrWhiteSpace(smallImageUrl) ? "background-image: url('" + smallImageUrl +"')" : null)">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
                     <h1>@title</h1>
-                    <h2>@Model.Value("authorName")</h2>
                     @if (!string.IsNullOrWhiteSpace(subtitle))
                     {
-                        if (hasAuthorDetails==2)
+                        if (hasAuthorDetails)
                         {
                             <h2 class="subheading">@subtitle</h2>
                         }
@@ -48,7 +40,7 @@
                         }
                     }
 
-                    @if (hasAuthorDetails==2)
+                    @if (hasAuthorDetails)
                     {
                         <span class="meta">
                             Posted
