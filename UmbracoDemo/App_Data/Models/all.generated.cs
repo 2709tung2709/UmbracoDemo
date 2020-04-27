@@ -6,7 +6,7 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "48571cc7e8d11287")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d55bc9a9d02843e3")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -67,6 +67,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
 		[ImplementPropertyType("mainContent")]
 		public global::Newtonsoft.Json.Linq.JToken MainContent => global::Umbraco.Web.PublishedModels.ContentControls.GetMainContent(this);
+
+		///<summary>
+		/// copy right
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("copyRight")]
+		public string CopyRight => global::Umbraco.Web.PublishedModels.FooterControls.GetCopyRight(this);
 
 		///<summary>
 		/// Social Links: Enter a social link for the footer
@@ -336,6 +343,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Main Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("mainImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("mainImage");
+
+		///<summary>
 		/// Error Message: Enter an error message
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
@@ -552,6 +566,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Main Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("mainImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("mainImage");
 	}
 
 	/// <summary>XML Sitemap</summary>
@@ -1010,6 +1031,10 @@ namespace Umbraco.Web.PublishedModels
 	/// <summary>Footer Controls</summary>
 	public partial interface IFooterControls : IPublishedContent
 	{
+		/// <summary>copy right</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		string CopyRight { get; }
+
 		/// <summary>Social Links</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
 		global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.IconLinkItem> SocialLinks { get; }
@@ -1039,6 +1064,17 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// copy right
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("copyRight")]
+		public string CopyRight => GetCopyRight(this);
+
+		/// <summary>Static getter for copy right</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		public static string GetCopyRight(IFooterControls that) => that.Value<string>("copyRight");
 
 		///<summary>
 		/// Social Links: Enter a social link for the footer

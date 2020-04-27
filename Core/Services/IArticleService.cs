@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Core.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Umbraco.Core.Models.PublishedContent;
 
 namespace Core.Services
@@ -10,6 +7,7 @@ namespace Core.Services
     public interface IArticleService
     {
         IPublishedContent GetArticleListPage(IPublishedContent siteRoot);
-        IEnumerable<IPublishedContent> GetLastesArticle(IPublishedContent siteRoot);
+        IEnumerable<IPublishedContent> GetLatesArticles(IPublishedContent siteRoot);
+        ArticleResultSet GetLatestArticles(IPublishedContent currentContentItem, System.Web.HttpRequestBase request);
     }
 }
