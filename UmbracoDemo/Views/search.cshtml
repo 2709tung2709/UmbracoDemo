@@ -16,16 +16,16 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="form-group controls">
-                    <input type="text" class="form-control col-xs-6" placeholder="@Umbraco.GetDictionaryValue("Search.Placeholder")" name="q" value="" />
+                    <input type="text" class="form-control col-xs-6" placeholder="@Umbraco.GetDictionaryValue("Search.Placeholder")" name="searchQuery" value="" />
                 </div>
             </div>
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="form-group">
-                    <button class="btn btn-primary search-button">@Umbraco.GetDictionaryValue("Search.ButtonText") <i class="fa fa-search"></i></button>
+                    <button class="btn btn-primary search-button" id="search">@Umbraco.GetDictionaryValue("Search.ButtonText") <i class="fa fa-search"></i></button>
                 </div>
             </div>
             <div class="col-lg-8 col-md-10 mx-auto">
-                @if (!string.IsNullOrWhiteSpace(searchQuery))
+                @*@if (!string.IsNullOrWhiteSpace(searchQuery))
                 {
                     var results = Umbraco.ContentQuery.Search(searchQuery, string.Empty);
                     long resultCount = results != null && results.Any() ? results.Count() : 0;
@@ -60,8 +60,16 @@
                         }
 
                     }
-                }
+                }*@
             </div>
         </div>
     </form>
 </div>
+
+<script>
+    var searchQuery = $("q").attr("name");
+    $("#search").on("click", function () {
+        $.get("api/search", searchQuery, function () {
+        });
+    });
+</script>

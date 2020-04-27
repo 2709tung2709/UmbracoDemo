@@ -285,7 +285,9 @@ Umbraco.ModelsBuilder.Embedded.BackOffice.MemberTypeModelValidator, Umbraco.Mode
 Umbraco.ModelsBuilder.Embedded.BackOffice.ModelsBuilderDashboardController, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Embedded.BackOffice.ContentTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Core.Controllers.ContactSurfaceController, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Core.Composing.MapHttpRoutesComposer, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Core.Composing.RegisterServicesComposer, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Core.ApiController.SearchController, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Composing.IComposer
 
@@ -312,6 +314,7 @@ Umbraco.Web.Compose.PublicAccessComposer, Umbraco.Web, Version=8.0.0.0, Culture=
 Umbraco.Web.Compose.DatabaseServerRegistrarAndMessengerComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Cache.DistributedCacheBinderComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Embedded.Compose.ModelsBuilderComposer, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Core.Composing.MapHttpRoutesComposer, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 Core.Composing.RegisterServicesComposer, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.PropertyEditors.IPropertyValueConverter
@@ -433,6 +436,7 @@ Umbraco.Web.Editors.MediaTypeController, Umbraco.Web, Version=8.0.0.0, Culture=n
 Umbraco.Web.Editors.SectionController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Editors.MediaController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.ModelsBuilder.Embedded.BackOffice.ModelsBuilderDashboardController, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Core.ApiController.SearchController, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.Mvc.SurfaceController
 
@@ -578,7 +582,4 @@ Umbraco.Web.HealthCheck.Checks.Security.HttpsCheck, Umbraco.Web, Version=8.0.0.0
 Umbraco.Web.HealthCheck.NotificationMethods.IHealthCheckNotificationMethod
 
 Umbraco.Web.HealthCheck.NotificationMethods.EmailNotificationMethod, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-
-Umbraco.Core.Deploy.IServiceConnector
-
 

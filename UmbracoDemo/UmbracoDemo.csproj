@@ -314,6 +314,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lazysizes.min.js" />
     <Content Include="Scripts\ls.unveilhooks.min.js" />
+    <Content Include="Scripts\search.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

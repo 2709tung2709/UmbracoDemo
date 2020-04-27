@@ -1,7 +1,4 @@
-﻿using Umbraco.Core.Logging;
-using Core.ViewModels;
-using System;
-using System.Net.Mail;
+﻿using Core.ViewModels;
 using System.Web;
 using System.Web.Mvc;
 using Umbraco.Web;
