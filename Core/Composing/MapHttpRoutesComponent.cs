@@ -11,10 +11,14 @@ namespace Core.Composing
 
     public class MapHttpRoutesComponent : IComponent
     {
+        public MapHttpRoutesComponent()
+        {
+            GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
+        }
         // initialize: runs once when Umbraco starts
         public void Initialize()
         {
-            GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
+            
         }
 
         public void Terminate()
