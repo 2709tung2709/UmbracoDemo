@@ -23,7 +23,6 @@
     <!-- Lazy loading for images-->
     Html.RequiresJs("/scripts/lazysizes.min.js", new { async = "async" });
     Html.RequiresJs("/scripts/ls.unveilhooks.min.js", new { async = "async" });
-
 }
 
 <!DOCTYPE html>
@@ -37,6 +36,7 @@
     <meta name="author" content="">
     <title>Clean Blog - Start Bootstrap Theme</title>
     @Html.RenderCssHere()
+    @Html.RenderJsHere()
 </head>
 
 <body>
@@ -45,7 +45,7 @@
     @RenderBody()
 
     @Html.Partial("/Views/Partials/footer.cshtml")
-    @Html.RenderJsHere()
+
 </body>
 
 </html>

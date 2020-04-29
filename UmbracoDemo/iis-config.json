@@ -1,6 +1,6 @@
 {
-    "IIS-Site-Name": "um",
-    "App-Pool-Name": "um",
+    "IIS-Site-Name": "Umbraco",
+    "App-Pool-Name": "UmbracoAppPool",
     "IIS-App-Pool-Dot-Net-Version": "v4.0",
-    "bindings": ["um.localtest.me"]
+    "bindings": ["192.168.53.33"]
 }

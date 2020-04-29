@@ -7,12 +7,12 @@ namespace Core.Services
 {
     public class SmtpService : ISmtpService
     {
-        //private readonly ILogger _logger;
+        private readonly ILogger _logger;
 
-        //public SmtpService(ILogger logger)
-        //{
-        //    _logger = logger;
-        //}
+        public SmtpService(ILogger logger)
+        {
+            _logger = logger;
+        }
         public SmtpService()
         {
 
@@ -37,7 +37,7 @@ namespace Core.Services
             }
             catch (Exception ex)
             {
-               // _logger.Error(typeof(SmtpService), ex, "Error");
+                _logger.Error(typeof(SmtpService), ex, "Error");
                 return false;
             }
         }

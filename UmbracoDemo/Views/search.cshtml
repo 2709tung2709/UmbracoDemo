@@ -10,7 +10,6 @@
 
 <!-- Page Header -->
 @Html.Partial("/Views/Partials/pageHeader.cshtml")
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -22,94 +21,96 @@
             <div class="form-group">
                 <button class="btn btn-primary search-button" id="search">
                     @Umbraco.GetDictionaryValue("Search.ButtonText") <i class="fa fa-search"></i>
-                    <span id="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 </button>
+                <button class="btn btn-warning" id="clear">
+                    @Umbraco.GetDictionaryValue("Search.ButtonTextClear") <i class="fa fa-eraser"></i>
+                </button>
+                <span id="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             </div>
         </div>
+        <p><strong>s</strong> @Html.Raw(Umbraco.GetDictionaryValue("Search.ResultsText"))</p>
+        <div class="col-lg-8 col-md-10 mx-auto" id="content">
+          
+        </div>
+        
+        @*@if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                var results = Umbraco.ContentQuery.Search(searchQuery, string.Empty);
+                long resultCount = results != null && results.Any() ? results.Count() : 0;
+                <p>@Html.Raw(string.Format(Umbraco.GetDictionaryValue("Search.ResultsText"), searchQuery, resultCount, resultCount == 1 ? null : "s"))</p>
 
-        <div class="col-lg-8 col-md-10 mx-auto" id="resultSection">
-            <div class="post-preview" >
-                <a href="">
-                    <h2 class="post-title"></h2>
-                    <h3 class="post-subtitle"></h3>
-                </a>
-                <p class="post-meta">
-                    Posted by
-                </p>
-            </div>
-
-            @*@if (!string.IsNullOrWhiteSpace(searchQuery))
+                if (resultCount > 0)
                 {
-                    var results = Umbraco.ContentQuery.Search(searchQuery, string.Empty);
-                    long resultCount = results != null && results.Any() ? results.Count() : 0;
-                    <p>@Html.Raw(string.Format(Umbraco.GetDictionaryValue("Search.ResultsText"), searchQuery, resultCount, resultCount == 1 ? null : "s"))</p>
-
-                    if (resultCount > 0)
+                    foreach (var result in results)
                     {
-                        foreach (var result in results)
-                        {
-                            var title = result.Content.Value<string>("title");
-                            var subtitle = result.Content.Value<string>("subtitle");
-                            var authorName = result.Content.Value<string>("authorName");
-                            var articleDate = result.Content.Value<DateTime>("articleDate");
+                        var title = result.Content.Value<string>("title");
+                        var subtitle = result.Content.Value<string>("subtitle");
+                        var authorName = result.Content.Value<string>("authorName");
+                        var articleDate = result.Content.Value<DateTime>("articleDate");
 
-                            <div class="post-preview">
-                                <a href="@result.Content.Url">
-                                    <h2 class="post-title">
-                                        @(!string.IsNullOrWhiteSpace(title) ? title : result.Content.Name)
-                                    </h2>
-                                    @if (!string.IsNullOrWhiteSpace(subtitle))
-                                    {
-                                        <h3 class="post-subtitle">@subtitle</h3>
-                                    }
-                                </a>
-                                @if (!string.IsNullOrWhiteSpace(authorName) && articleDate != DateTime.MinValue)
+                        <div class="post-preview">
+                            <a href="@result.Content.Url">
+                                <h2 class="post-title">
+                                    @(!string.IsNullOrWhiteSpace(title) ? title : result.Content.Name)
+                                </h2>
+                                @if (!string.IsNullOrWhiteSpace(subtitle))
                                 {
-                                    <p class="post-meta">
-                                        Posted by @authorName on @articleDate.ToString("MMMM dd, yyyy")
-                                    </p>
+                                    <h3 class="post-subtitle">@subtitle</h3>
                                 }
-                            </div>
-                        }
-
+                            </a>
+                            @if (!string.IsNullOrWhiteSpace(authorName) && articleDate != DateTime.MinValue)
+                            {
+                                <p class="post-meta">
+                                    Posted by @authorName on @articleDate.ToString("MMMM dd, yyyy")
+                                </p>
+                            }
+                        </div>
                     }
-                }*@
-        </div>
-    </div>
 
+                }
+            }*@
+    </div>
 </div>
 
+
+
 <script>
-    var searchQuery = $("#q").val();
-    $("#search").on("click", function () {
-
-        $("#loading").show();
-        debugger;
-        $.get("/umbraco/api/search/searchall", { q: searchQuery }, function (msg) {
-            $("#loading").hide();
-            for (var i = 0; i < response.count; i++) {
-                data1 = msg.Title;
-                data2 = msg.Subtitle;
-                data3 = msg.AuthorName;
-                data4 = msg.ArticleDates;
-                data5 = msg.Url;
-                $("div.col-lg-8 col-md-10 mx-auto").html(template);
-            }
-        }, "json")
-    });
-
     $(document).ready(function () {
-        $("#loading").hide();
-        var data1 = "";
-        var data2 = "";
-        var data3 = "";
-        var data4 = "";
-        var data5 = "";
-        var template = "<div class='col-lg - 8 col - md - 10 mx - auto'>" +
-            "< div class='post-preview'><a href="+ data1 +"><h2 class='post-title'>" + data2 +"</h2><h3 class='post-subtitle'> "+ data3 +"</h3></a>" +
-            "<p class='post-meta'>Posted by "+ data4 +" on " + data5 +"</p></div >";
-        var searchQuery = $("#q").val();
-       
-    })
 
+        $("#loading").hide();
+        var title,subtitle,authorName,articleDate,url;        
+
+        $("#search").on("click", function () {
+            var searchQuery = $("#q").val();
+            $("#loading").show();
+            if (searchQuery !== null) {
+                $.ajax({
+                    url: "/umbraco/api/search/searchall",
+                    type: "GET",
+                    data: { q: searchQuery },
+                    async: false,
+                    success: function (response) {
+                        $("#content").empty();
+                        var data = JSON.parse(response);
+                        for (var i = 0; i < data.length; i++) {
+                            title = data[i].Title;
+                            subtitle = data[i].Subtitle;
+                            authorName = data[i].AuthorName;
+                            articleDate = data[i].ArticleDates;
+                            url = data[i].Url;
+                            var template = "<div class='col-lg-8 col-md-10 mx-autoo' id='result'>" +
+                                "<div class='post-preview'><a href='" + url + "'><h2 class='post-title'>" + title + "</h2><h3 class='post-subtitle'> " + subtitle + "</h3></a>" +
+                                "<p class='post-meta'>Posted by " + authorName + " on " + articleDate + "</p></div >";
+                            console.log(template);
+                            $("#content").append(template);
+                        }
+                    }
+                })
+            }
+            setTimeout(function () { $("#loading").hide(); }, 100);
+            
+        });
+
+        $("#clear").on("click", function () { $("#q").val(""); });
+    })
 </script>

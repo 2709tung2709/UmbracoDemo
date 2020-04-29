@@ -12,25 +12,24 @@ namespace Core.ApiController
     public class SearchController : UmbracoApiController
     {
         [HttpGet]
-        public List<SearchViewModel> SearchAll([FromUri]string q)
+        public string SearchAll([FromUri]string q)
         {
             var results = Umbraco.ContentQuery.Search(q);
             long resultCount = results != null && results.Any() ? results.Count() : 0;
+            var returnResults = new List<SearchViewModel>();
             if (resultCount > 0)
             {
-                var returnResult = results.Select(result => new SearchViewModel
+                returnResults = results.Select(result => new SearchViewModel
                 {
                     Title = result.Content.Value<string>("title"),
                     Subtitle = result.Content.Value<string>("subtitle"),
                     AuthorName = result.Content.Value<string>("authorName"),
-                    ArticleDates = result.Content.Value<DateTime>("articleDate"),
+                    ArticleDates = result.Content.Value<DateTime>("articleDate").ToString("MMMM dd, yyyy"),
                     Url = result.Content.Url
                 }).ToList();
-
-                return returnResult;
             }
 
-            return null;
+            return JsonConvert.SerializeObject(returnResults);
         }
 
     }

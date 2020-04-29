@@ -4,7 +4,6 @@ using Umbraco.Core.Composing;
 namespace Core.Composing
 {
     //Those classes are required to run UmbracoWebApi
-    [RuntimeLevel(MinLevel =Umbraco.Core.RuntimeLevel.Run)]
     public class MapHttpRoutesComposer : ComponentComposer<MapHttpRoutesComponent>
     {
     }
