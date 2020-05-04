@@ -1,0 +1,3 @@
+﻿1-> Modify iis-config.json
+2-> Publish project to desired location
+3-> run IIS-Builder.ps as admin

@@ -349,6 +349,8 @@
     <Content Include="config\umbracoSettings.config" />
     <Content Include="config\uSync8.config" />
     <Content Include="Media\Web.config" />
+    <Content Include="IIS-Builder.ps1" />
+    <Content Include="iis-config.json" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="scripts\contactForm.js" />
@@ -367,6 +369,7 @@
     <Content Include="scripts\lazysizes.min.js" />
     <Content Include="scripts\ls.unveilhooks.min.js" />
     <Content Include="scripts\search.js" />
+    <Content Include="Using_IIS_Builder.txt" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
